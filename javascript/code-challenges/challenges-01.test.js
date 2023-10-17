@@ -50,12 +50,20 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
+  let newArray = [];
+  arr.forEach(word => {
+    newArray.push(word.toUpperCase());
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an "!".
+Write a function named `greeting`
+ that takes in a single string and returns the string in all uppercase letters,
+
+ and followed by an "!". -X
 
 Then, write a function named `speaker` that takes in an array of strings and a callback function.
 
@@ -64,10 +72,21 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
+  return word.toUpperCase() + '!';
+
 };
 
-const speaker = (words, callback) => {
+const speaker = (words, greeting) => {
   // Solution code here...
+  let newArray = [];
+
+  words.forEach(word => {
+    newArray.push(greeting(word));
+  });
+
+
+
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,10 +107,13 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  //forloop()
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,13 +179,13 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of uppercase strings', () => {
     expect(allUpperCase(['hi', 'how', 'are', 'you'])).toStrictEqual(['HI', 'HOW', 'ARE', 'YOU']);
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
     expect(speaker(['hello', '301', 'students'], greeting)).toStrictEqual(['HELLO!', '301!', 'STUDENTS!']);
   });
